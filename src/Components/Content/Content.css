@@ -1,0 +1,10 @@
+.Content{
+    margin: 15px;
+}
+
+.Content span{
+    background-color: bisque;
+    color: brown;
+    font-size: 35px;
+    padding: 10px;
+}
