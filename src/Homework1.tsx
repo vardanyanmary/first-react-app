@@ -9,7 +9,7 @@ export interface Data {
   footer: string;
 }
 
- const data : Data = {
+const data : Data = {
   header: 'Text from HEADER component ',
   content: 'Text from CONTENT component',
   footer: 'Text from FOOTER component',

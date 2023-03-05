@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import './Content.css';
 
-interface Content {
+interface ContentProps {
     content:string
 }
 
-const Content : FC <Content> = ( {content} ) => {
+const Content : FC <ContentProps> = ( {content} ) => {
     return(
         <main className='Content'>
             <span>

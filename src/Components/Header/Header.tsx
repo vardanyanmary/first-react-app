@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import './Header.css'
 
-interface Header {
+interface HeaderProps {
     textsTitle: string
 }
 
-const Header:FC <Header> = ({ textsTitle }) => {
+const Header : FC <HeaderProps> = ({ textsTitle }) => {
     return(
         <header className='Header'>
             <span>

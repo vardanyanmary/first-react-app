@@ -1,11 +1,11 @@
 import { FC } from "react";
 import "./Footer.css";
 
-interface Footer {
+interface FooterProps {
   footer: string;
 }
 
-const Footer: FC <Footer> = ({ footer }) => {
+const Footer: FC <FooterProps> = ({ footer }) => {
   return (
     <footer className="Footer">
         <span>
