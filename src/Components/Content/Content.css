@@ -1,10 +1,52 @@
-.Content{
-    margin: 15px;
+body{
+    margin: 0;
+    padding: 0;
 }
-
-.Content span{
+.Content p{
     background-color: bisque;
     color: brown;
     font-size: 35px;
     padding: 10px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.Content label {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    grid-row-gap: 10px;
+    margin: 0 auto;
+    width: 450px;
+    text-align: center;
+    margin-top: 7px;
+    color:brown;
+    font-size: 18px;
+}
+
+.Content label input {
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px solid brown;
+}
+
+.Content button{
+    display: flex;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: bisque;
+    color: brown;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 12px;
+    width: 25%;
+    justify-content: center;
+}
+
+.Content button:hover {
+    background-color: brown;
+    color: bisque;
 }

@@ -8,9 +8,9 @@ interface FooterProps {
 const Footer: FC <FooterProps> = ({ footer }) => {
   return (
     <footer className="Footer">
-        <span>
+        <p>
             {footer}
-        </span>
+        </p>
     </footer>
   );
 };

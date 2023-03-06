@@ -8,9 +8,9 @@ interface HeaderProps {
 const Header : FC <HeaderProps> = ({ textsTitle }) => {
     return(
         <header className='Header'>
-            <span>
+            <p>
                 {textsTitle}
-            </span>
+            </p>
         </header>
     )
 }
