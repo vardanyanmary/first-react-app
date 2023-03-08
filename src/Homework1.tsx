@@ -38,6 +38,8 @@ export default Homework1
 
 
 
+// Homework 1 wrong code
+
 // const Homework1: React.FC<Obj> = (props) => {
 //   const { header, content, footer } = props;
 //   return (

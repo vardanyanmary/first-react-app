@@ -24,24 +24,21 @@ const Content : FC <ContentProps> = ( {content} ) => {
         // onMouseEnter={enterMouse} 
         // onMouseLeave={leaveMouse}
         >
-
-            <p>
-                {content}
-            </p>
+            <p> {content} </p>
 
             <form>
 
                 <label>
-                    Username:
+                    Username :
                     <input type = "text"  name = 'username'/>
                 </label>
 
                 <label>
-                    Password:
+                    Password :
                     <input type = "password" name = 'password' />
                 </label>
 
-                <button onClick={handleClick} > Login </button>
+                <button onClick = { handleClick } > Login </button>
 
             </form>
         </main>
