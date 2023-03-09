@@ -11,6 +11,11 @@ const Content : FC <ContentProps> = ( {content} ) => {
         console.log('success');
     };
 
+    const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
+        // e.preventDefault();
+        console.log('success');
+    };
+
     // const enterMouse = () => {
     //     console.log(' Hi ) '); 
     // };
@@ -26,7 +31,7 @@ const Content : FC <ContentProps> = ( {content} ) => {
         >
             <p> {content} </p>
 
-            <form>
+            <form onSubmit = {handleSubmit}>
 
                 <label>
                     Username :
@@ -38,9 +43,15 @@ const Content : FC <ContentProps> = ( {content} ) => {
                     <input type = "password" name = 'password' />
                 </label>
 
-                <button onClick = { handleClick } > Login </button>
+                <button type = 'submit' // onClick = {handleClick} 
+                > Login </button>
+
+                <button type = 'reset'> Reset </button>
+
+                <button type = 'button' > Button </button>
 
             </form>
+            
         </main>
     )
 }
