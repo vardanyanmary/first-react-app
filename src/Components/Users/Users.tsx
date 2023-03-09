@@ -1,32 +1,30 @@
-import "./Users.css";
 import { useState } from "react";
+import "./Users.css";
 
-const Users = () => {
-  const [ username, setUsername ] = useState("");
-  const [ password, setPassword ] = useState("");
+const Users = ({content} : {content: string})=> {
+  const [username, setUsername] = useState(content);
+  const [password, setPassword] = useState("");
 
   const handleInput = () => {
     console.log(username, password);
   };
 
   return (
-    <div className = 'Users'>
+    <div className='Users'>
 
       <span> Homework 3 </span>
 
-      <input 
-        placeholder = "Username" 
-        onChange = { (e) => setUsername(e.target.value)} 
-        defaultValue = 'Hello' 
-      />
+      <input
+        placeholder="Username"
+        onChange={(e) => setUsername(e.target.value)}
+        defaultValue='Hello' />
 
       <input
-        placeholder = "Password"
-        onChange = { (e) => setPassword(e.target.value)} 
-      />
+        placeholder="Password"
+        onChange={(e) => setPassword(e.target.value)} />
 
-      <button onClick = { () => handleInput() }> Input </button>
-      
+      <button onClick={() => handleInput()}> Input </button>
+
     </div>
   );
 };

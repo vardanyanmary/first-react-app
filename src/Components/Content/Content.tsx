@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import './Content.css';
 
-interface ContentProps {
+export interface ContentProps {
     content:string
 }
 
