@@ -25,7 +25,7 @@ const Homework1 = () => {
         <Content content = {data.content}/>
         <Footer  footer= {data.footer}/>
 
-        <Users content={''}/>
+        <Users />
 
       </Fragment>
   )

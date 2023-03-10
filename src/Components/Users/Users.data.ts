@@ -28,7 +28,7 @@ interface User{
     company: UserCompany,
 }
 
-const User : User[]= [
+export const users : User[]= [
     {
       "id": 1,
       "name": "Leanne Graham",
