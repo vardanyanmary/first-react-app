@@ -1,7 +1,12 @@
-.Footer p {
+.Footer {
+    margin-top: 10px;
     background-color: burlywood;
     color: bisque;
     font-size: 35px;
     padding: 10px;
     text-align: center;
+}
+
+.Footer p{
+    margin: 0;
 }

@@ -20,13 +20,9 @@ const data : Data = {
 const Homework1 = () => {
     return (
       <Fragment>
-
         <Header textsTitle = {data.header}/>
         <Content content = {data.content}/>
         <Footer  footer= {data.footer}/>
-
-        <Users />
-
       </Fragment>
   )
 }

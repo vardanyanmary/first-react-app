@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC , useState} from "react";
 import "./Footer.css";
 
 interface FooterProps {
@@ -6,11 +6,22 @@ interface FooterProps {
 }
 
 const Footer: FC <FooterProps> = ({ footer }) => {
+
+  const [footerValue, setFooterValue] = useState(footer);
+
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const newValue = e.target.value;
+      setFooterValue(newValue)
+  }
+
   return (
     <footer className="Footer">
-        <p>
-            {footer}
-        </p>
+        <input 
+            type = "text" 
+            onChange = {handleChangeInput}
+            value = {footerValue}
+        />
+        <p> {footerValue} </p>
     </footer>
   );
 };

@@ -1,8 +1,17 @@
 import "./Users.css";
 import { users } from "./Users.data";
-import { useState } from "react";
+import { useEffect } from "react";
 
-const Users = () => {
+export const Users = ( { isHiddenUsers }: { isHiddenUsers: boolean }) => {
+  useEffect(() => {
+    // console.log(isHiddenUsers, "changed");
+ 
+    return () => {
+      console.log("unmount");
+    };
+  }, [isHiddenUsers]);
+
+
   return (
     <div className="Users">
       <p> Homework 3 </p>
@@ -10,7 +19,7 @@ const Users = () => {
         {/* <button onClick = {createUsers}> Input </button> */}
         {users.map((user) => {
           return (
-            <span>
+            <span key={user.id}>
               {user.name} -- Users data {user.id}
             </span>
           );

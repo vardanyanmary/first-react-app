@@ -1,26 +1,33 @@
-import { FC, ReactHTMLElement, useState } from 'react'
-import './Header.css'
+import { FC, useState } from "react";
+import "./Header.css";
 
 interface HeaderProps {
-    textsTitle: string
+  textsTitle: string;
 }
 
-const Header : FC <HeaderProps> = ({ textsTitle }) => {
-//     const [header,setHeaderValue] = useState(textsTitle)
+const Header: FC <HeaderProps> = ({ textsTitle }) => {
+  const [header, setHeaderValue] = useState(textsTitle);
 
-//     const handleChangeInput = (e:ReactHTMLElement<HTMLInputElement>) => {
-//         const { target } = event
-//         return e.target.value(header)
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    setHeaderValue(newValue);
+  };
+  
+  return (
+    <header className="Header">
+        <input 
+            type="text" 
+            onChange={handleChangeInput} 
+            value={header} 
+        //    style={{
+		// 			padding: '10px',
+		// 			backgroundColor: header.length < 5 ? 'red' : 'green',
+		//     }}
+            /> 
 
-//        setHeaderValue(header)
-//     }
-    return(
-        <header className='Header'>
-            <p>
-                {textsTitle}
-            </p>
-        </header>
-    )
-}
+        <p>{header}</p>
+    </header>
+  );
+};
 
-export default Header
+export default Header;
