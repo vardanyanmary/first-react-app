@@ -1,0 +1,28 @@
+body{
+    margin: 0;
+}
+.TodoList {
+    color: rgb(244, 187, 45);
+    font-size: 25px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.addToDo input{
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 188, 19);
+}
+
+.addToDo button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 188, 19);
+}
+
+.newTasks{
+    background-color: rgb(249, 236, 219);
+}
