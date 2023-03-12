@@ -3,9 +3,9 @@ import ToDoItem from "./ToDoItem/ToDoItem";
 import "./ToDo.css";
 
 export interface IToDoItem {
-  id: number;
-  task: string;
-  isCompleted: boolean;
+  id: number
+  task: string
+  isCompleted: boolean
 }
 
 const ToDo = () => {
@@ -24,7 +24,7 @@ const ToDo = () => {
       return;
     }
     const id = toDoList.length + 1;
-    const newToDo: IToDoItem = {
+    const newToDo:IToDoItem = {
       id: id,
       task: toDoValue,
       isCompleted: false,
@@ -54,8 +54,8 @@ const ToDo = () => {
                 <ToDoItem
                   key={todo.id}
                   todoItem={todo}
-                  // toDoList = {toDoList}
-                  // setToDoList = {setToDoList}
+                  onChangeItem = {(props:any) => setToDoList(props)}
+                  todosArray = {toDoList}
                 />
               );
             })}
