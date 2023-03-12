@@ -9,7 +9,7 @@ export interface IToDoItem {
 }
 
 const ToDo = () => {
-  const [toDoValue, setToDoValue] = useState("");
+  const [toDoValue, setToDoValue] = useState('');
   const [toDoList, setToDoList] = useState<IToDoItem[]>([]);
 
   // Change
@@ -30,28 +30,12 @@ const ToDo = () => {
       isCompleted: false,
     };
     setToDoList((prev) => [...prev, newToDo]);
-    setToDoValue("");
+    setToDoValue('');
   };
 
   useEffect(() => {
     console.log(toDoList, "todo list");
   }, [toDoList]);
-
-  //change to dos
-  // const handleChangeChecked = (id) => {
-  //   const copy = [...toDoList]
-  //   const current = copy.find(item => item.id === id)
-  //   current.isCompleted = !current.isCompleted;
-  //   // setToDoList([...toDoList]);
-  // };
-
-  //Delete
-  // const deleteToDoItem = (listTask) => {
-  //   const newToDos = toDoList.filter((toDoValue) => {
-  //     return toDoValue !== listTask;
-  //   });
-  //   setToDoList(newToDos);
-  // };
 
   return (
     <div className="TodoList">
@@ -60,7 +44,7 @@ const ToDo = () => {
 
         <div className="addToDo">
           <input type="text" value = {toDoValue} onChange = {handleChange} />
-          <button onClick = {handleAddToDo}> Add </button>
+          <button onClick = {handleAddToDo} > Add </button>
         </div>
 
         <div>
@@ -83,40 +67,3 @@ const ToDo = () => {
 };
 
 export default ToDo;
-
-
-
-
-//   Delete to do
-
-// const deleteToDoItem = (id: number) => {
-//   setToDoList([...toDoList.filter((toDoValue) => toDoValue.id !== id)]);
-// };
-
-// const deleteToDoItem = (listTask: IToDoItem) => {
-//   const newToDos = toDoList.filter((toDoValue) => {
-//     return toDoValue !== listTask;
-//   });
-//   setToDoList(newToDos);
-// };
-
-//-------------------------------
-
-//Completed
-
-// const completeTask = (id: IToDoItem[id]) => {
-//   setToDoList(toDoList.map(todo) => {
-//       if (todo.id === id) {
-//         return {...todo, checked: !todo.checked}
-//       }
-//       return todo;
-//   })
-// }
-
-// const completeTask = (taskNameCompleted: string) => {
-//   setToDoList(
-//     toDoList.filter((todo) => {
-//       return todo.task != taskNameCompleted;
-//     })
-//   );
-// };

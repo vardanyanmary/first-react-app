@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    padding: 0;
 }
 .TodoList {
     color: rgb(244, 187, 45);
@@ -33,4 +34,8 @@ body{
 
 .newTasks{
     background-color: rgb(249, 236, 219);
+}
+
+ul{
+    padding: 0;
 }
