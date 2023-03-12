@@ -11,6 +11,7 @@ body{
 }
 
 .addToDo input{
+    width: 350px;
     padding: 10px;
     margin-right: 10px;
     border-radius: 5px;
@@ -18,9 +19,16 @@ body{
 }
 
 .addToDo button {
+    width: 55px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid rgb(255, 188, 19);
+    cursor: pointer;
+}
+
+.addToDo button:hover {
+    background-color: rgb(255, 188, 19);
+    color: #fff;
 }
 
 .newTasks{

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { IToDoItem } from "../ToDo";
+// import {ToDoList} from "../ToDo";
+// import {setToDoList} from "../ToDo";
 import "./ToDoItem.css";
 
 interface ToDoItemProps {
@@ -7,37 +9,37 @@ interface ToDoItemProps {
 }
 
 const ToDoItem = ({ todoItem }: ToDoItemProps) => {
-    const { id, isCompleted, task } = todoItem;
-    const [isInEditMode, setIsInEditMode] = useState(false);
-    const [inputText, setInputText] = useState<string>(task);
+  const { id, task } = todoItem;
+  const [isInEditMode, setIsInEditMode] = useState(false);
+  // const [isInDeleteMode, setIsInDeleteMode] = useState(false);
+  const [inputText, setInputText] = useState<string>(task);
 
-    const onTodoUpdate = (e:React.ChangeEvent<HTMLInputElement>) => {
-        const newText = e.target.value;
-        setInputText(newText);
-    }
 
   return (
-    <div className="ToDoItem">
-      { isInEditMode ? ( <input type="text" placeholder="edit todo" className="ToDoItemInput" value = {task} onChange={(e) => onTodoUpdate(e)} /> ) : (<p> {task} </p>) }
+    <li className="ToDoItem">
+
+      {isInEditMode ? ( <><input
+          type="text"
+          placeholder="edit todo"
+          className="ToDoItemInput"
+          value = {inputText}
+        />
+        <button 
+        // onclick = {onTodoUpdate}
+        > Save </button></>) : ( <p> {task} </p>)}
+
       <span>
-        <button onClick = {() => setIsInEditMode(true)} > Edit </button>
-        <button>Complete</button>
-        <button
-        // onClick={() => deleteToDoItem()}
-        >
-          Delete
-        </button>
+        <button onClick={() => setIsInEditMode(true)}> Edit </button>
+
+        <button> Completed </button>
+
+        <button 
+        // onClick={()=>{setIsInDeleteMode(true)}}
+          > Delete </button>
+      
       </span>
-    </div>
+    </li>
   );
 };
 
 export default ToDoItem;
-
-// const completeTask = (taskNameToDelete: string): void => {
-//     setToDoList(
-//       toDoList.filter((todo) => {
-//         return todo.task != taskNameToDelete;
-//       })
-//     );
-//   };
