@@ -9,8 +9,7 @@ export interface IToDoItem {
 }
 
 const ToDo = () => {
-
-  const [toDoValue, setToDoValue] = useState('');
+  const [toDoValue, setToDoValue] = useState("");
   const [toDoList, setToDoList] = useState<IToDoItem[]>([]);
 
   // Change
@@ -31,48 +30,50 @@ const ToDo = () => {
       isCompleted: false,
     };
     setToDoList((prev) => [...prev, newToDo]);
-    setToDoValue('');
+    setToDoValue("");
   };
 
   useEffect(() => {
     console.log(toDoList, "todo list");
   }, [toDoList]);
 
-//change to dos
-// const handleChangeChecked = (id) => {
-//   const copy = [...toDoList]
-//   const current = copy.find(item => item.id === id)
-//   current.isCompleted = !current.isCompleted;
-//   // setToDoList([...toDoList]);
-// };
+  //change to dos
+  // const handleChangeChecked = (id) => {
+  //   const copy = [...toDoList]
+  //   const current = copy.find(item => item.id === id)
+  //   current.isCompleted = !current.isCompleted;
+  //   // setToDoList([...toDoList]);
+  // };
 
-//Delete 
-// const deleteToDoItem = (listTask) => {
-//   const newToDos = toDoList.filter((toDoValue) => {
-//     return toDoValue !== listTask;
-//   });
-//   setToDoList(newToDos);
-// };
- 
+  //Delete
+  // const deleteToDoItem = (listTask) => {
+  //   const newToDos = toDoList.filter((toDoValue) => {
+  //     return toDoValue !== listTask;
+  //   });
+  //   setToDoList(newToDos);
+  // };
+
   return (
     <div className="TodoList">
       <div className="InputButton">
         <h1> ToDo List </h1>
 
         <div className="addToDo">
-          <input type="text" value={toDoValue} onChange={handleChange} />
-          <button onClick={handleAddToDo}> Add </button>
+          <input type="text" value = {toDoValue} onChange = {handleChange} />
+          <button onClick = {handleAddToDo}> Add </button>
         </div>
 
         <div>
           <ul>
             {toDoList.map((todo) => {
-              return <ToDoItem 
+              return (
+                <ToDoItem
                   key={todo.id}
-                  todoItem = {todo}
+                  todoItem={todo}
                   // toDoList = {toDoList}
                   // setToDoList = {setToDoList}
-              />;
+                />
+              );
             })}
           </ul>
         </div>
@@ -82,6 +83,9 @@ const ToDo = () => {
 };
 
 export default ToDo;
+
+
+
 
 //   Delete to do
 
