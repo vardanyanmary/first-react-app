@@ -37,6 +37,11 @@ const ToDo = () => {
     console.log(toDoList, "todo list");
   }, [toDoList]);
 
+
+    // const [state,setState] = useState(false)
+ 
+    // return <ChildComponent  />
+ 
   return (
     <div className="TodoList">
       <div className="InputButton">
@@ -52,10 +57,11 @@ const ToDo = () => {
             {toDoList.map((todo) => {
               return (
                 <ToDoItem
-                  key={todo.id}
-                  todoItem={todo}
-                  onChangeItem = {(props:any) => setToDoList(props)}
+                  key = {todo.id}
+                  todoItem = {todo}
+                  onChangeItem = { setToDoList }
                   todosArray = {toDoList}
+                  // onChangeItem = {(props:any) => setToDoList(props)}
                 />
               );
             })}

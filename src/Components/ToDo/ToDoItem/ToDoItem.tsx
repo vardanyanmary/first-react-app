@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import { IToDoItem } from "../ToDo";
 import "./ToDoItem.css";
 
@@ -6,10 +6,18 @@ interface ToDoItemProps {
   todoItem: IToDoItem;
 }
 
-const ToDoItem = ({ todoItem, onChangeItem, todosArray }: ToDoItemProps) => {
+interface ChildComponentProps {
+  onChangeItem: React.Dispatch<React.SetStateAction<IToDoItem[]>>
+  todoItem: IToDoItem;
+  todosArray:IToDoItem[]
+}
+
+
+const ToDoItem : FC<ChildComponentProps>  = ({ todoItem }: ToDoItemProps, {onChangeItem,todosArray}) => {
+
   const { id, task, isCompleted } = todoItem;
   const [isInEditMode, setIsInEditMode] = useState(false);
-
+  
   
   //  Delete todo
   const deleteToDoItem = (id: number) => {
@@ -18,9 +26,9 @@ const ToDoItem = ({ todoItem, onChangeItem, todosArray }: ToDoItemProps) => {
   };
   
   //  Completed todo
-  const completeTask = (taskNameCompleted: string) => {
-    onChangeItem(todosArray.filter((todoItem: { task: string; }) => {
-      return todoItem.task != taskNameCompleted;
+  const completeTask = (taskNameCompleted: ToDoItemProps) => {
+    onChangeItem(todosArray.filter((todoItem: {isCompleted : boolean}) => {
+      return todoItem.isCompleted != taskNameCompleted;
     })
     );
   };
@@ -40,9 +48,7 @@ const ToDoItem = ({ todoItem, onChangeItem, todosArray }: ToDoItemProps) => {
         </> ) : ( <p> {task} </p>)}
       <span>
         <button onClick={() => setIsInEditMode(true)}> Edit </button>
-        <button 
-        // onClick={() => completeTask()}
-        > Completed </button>
+        <button  onClick={() => completeTask(isCompleted)} > Completed </button>
         <button onClick={() => deleteToDoItem(id)} > Delete </button>
       </span>
     </li>
@@ -52,9 +58,8 @@ const ToDoItem = ({ todoItem, onChangeItem, todosArray }: ToDoItemProps) => {
 export default ToDoItem;
 
 
-//---------------
-  // const [isInDeleteMode, setIsInDeleteMode] = useState(false);
-  // const [inputText, setInputText] = useState<string>(task);
+
+
 //--------------- 
   // const deleteToDoItem = (listTask: ToDoItemProps) => {
   //   const newToDos = toDoList.filter((toDoValue) => {
