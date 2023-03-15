@@ -1,6 +1,6 @@
 import { FC, useRef, useState} from "react";
 import Users from "../Users/Users";
-import "./Content.css";
+import "./Content.scss";
 
 export interface ContentProps {
   content: string;
@@ -59,37 +59,21 @@ const Content: FC<ContentProps> = ({ content }) => {
           </label>
           <label>
             Ref :
-            <input 
-                ref={ref} 
-                type="ref" 
-                name="ref" 
-                />
+            <input  ref={ref}  type="ref"  name="ref"  />
           </label>
           {/* <p>{value}</p> */}
           <label>
             Password :
-            <input 
-                type="password" 
-                name="password" />
+            <input  type="password"  name="password" />
           </label>
 
-          <button
-            type="submit" // onClick = {handleClick}
-          > Login </button>
-
+          <button type="submit" > Login </button>
           <button type="reset"> Reset </button>
-
           <button type="button"> Button </button>
-
-          <button 
-            type='button' 
-            onClick={() => setHiddenUsers((prev) => !prev)}
-          >
-              Hide users
-				  </button>
+          {/* <button  type='button'  onClick={() => setHiddenUsers((prev) => !prev)} > Hide users </button> */}
 
         </form>
- 			 {<Users isHiddenUsers = {isHiddenUsers} />} 
+ 		{<Users isHiddenUsers = {isHiddenUsers} />} 
 
       </main> 
     </>

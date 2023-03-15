@@ -16,8 +16,7 @@ const App = () => {
           <Route path="/HeaderToFooter" element={<AllInOne />} />
           <Route path="/todo" element={<ToDo />} />
           <Route path="/*" element={<NotFound />} />
-		  {/* {userLogged ? (
-              <Route path={"/all"} element={<AllInOne />} />
+		  {/* {userLogged ? (<Route path={"/all"} element={<AllInOne />} />
             ) : (<Route path={"/main"} element={<MainPage />} /> )} */}
         </>
       </Routes>

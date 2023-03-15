@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import "./Header.css";
+import "./Header.scss";
 
 interface HeaderProps {
   textsTitle: string;

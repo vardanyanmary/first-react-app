@@ -1,5 +1,5 @@
 import { FC , useState} from "react";
-import "./Footer.css";
+import "./Footer.scss";
 
 interface FooterProps {
   footer: string;

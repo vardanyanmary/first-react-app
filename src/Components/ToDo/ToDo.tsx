@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import ToDoItem from './ToDoItem/ToDoItem';
-import './ToDo.css';
+import './ToDo.scss';
 
 export interface IToDoItem {
 	id: number;
