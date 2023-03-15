@@ -1,30 +1,31 @@
-import ToDo from './Components/ToDo/ToDo';
+import { useEffect, useState } from "react";
+import ToDo from "./Components/ToDo/ToDo";
+import { Routes, Route } from "react-router-dom";
+import { AllInOne } from "./pages/HeaderContentFooter/AllInOne";
+import { NotFound } from "./pages/NotFound/NotFound";
+import MainPage from "./pages/MainPage/MainPage";
 
-export interface Data {
-	header: string;
-	content: string;
-	footer: string;
-}
-
-// const data: Data = {
-// 	header: 'Text for Header component',
-// 	content: 'Text for Content component',
-// 	footer: 'Text for Footer component',
-// };
 
 const App = () => {
-	return (
-		<>
-			<ToDo />
-			{/* <Header title={data.header} />
-			<Content content={data.content} />
-			<Footer footer={data.footer} /> */}
-		</>
-	);
+
+  return (
+    <div>
+      <Routes>
+        <>
+		  <Route path="/" element={<MainPage />}/>
+          <Route path="/HeaderToFooter" element={<AllInOne />} />
+          <Route path="/todo" element={<ToDo />} />
+          <Route path="/*" element={<NotFound />} />
+		  {/* {userLogged ? (
+              <Route path={"/all"} element={<AllInOne />} />
+            ) : (<Route path={"/main"} element={<MainPage />} /> )} */}
+        </>
+      </Routes>
+    </div>
+  );
 };
 
 export default App;
-
 
 
 
@@ -48,15 +49,12 @@ export default App;
 //             <h1>{data.h1}</h1>
 //             <h2>{data.h2}</h2>
 //             <h3>{data.h3}</h3>
-//             <input type="text" placeholder="name"/> 
+//             <input type="text" placeholder="name"/>
 //         </div>
 //     )
 // }
 
 // export default App
-
-
-
 
 //--- Arsen's code from first lesson ---
 
@@ -81,7 +79,6 @@ export default App;
 // 		// },
 // 	];
 // };
-
 
 // // const sum = (num1: number, num2: number): number => {
 // // 	console.log(num1 / num2);
@@ -108,9 +105,7 @@ export default App;
 
 // export default App;
 
-
-
-// //homework 
+// //homework
 
 // // obj --> {header:,content:, footer:}
 // // App ->  Header, Content , Footer
