@@ -7,9 +7,9 @@ const MainPage = () => {
   const [user, setUser] = useState();
 
   useEffect(() => {
-    const loggedInUser = localStorage.getItem('user');
-    if (loggedInUser) {
-      const foundUser = JSON.parse(loggedInUser);
+    const loggedIn = localStorage.getItem('user');
+    if (loggedIn) {
+      const foundUser = JSON.parse(loggedIn);
       setUser(foundUser);
     }
   }, []);
