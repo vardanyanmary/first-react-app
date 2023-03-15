@@ -31,7 +31,7 @@ const MainPage = () => {
     const storedData = localStorage.getItem(SECRET_KEY);
     if (storedData) {
       setRemembered(true);
-      setFormData(storedData);
+    //   setFormData(storedData);
     }
   }, []);
 
@@ -66,6 +66,9 @@ const MainPage = () => {
 };
 
 export default MainPage;
+
+
+
 
 //   const [username, setUsername] = useState("");
 //   const [password, setPassword] = useState("");

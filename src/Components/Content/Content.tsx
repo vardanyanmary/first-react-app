@@ -18,9 +18,9 @@ const Content: FC<ContentProps> = ({ content }) => {
   // };
 
   const [value, setValue] = useState('');
-	const ref = useRef<HTMLInputElement>(null);
+// 	const ref = useRef<HTMLInputElement>(null);
 
-  const [isHiddenUsers, setHiddenUsers] = useState(false);
+//   const [isHiddenUsers, setHiddenUsers] = useState(false);
 
   // const enterMouse = () => {
   //     console.log(' Hi ) ');
@@ -57,10 +57,10 @@ const Content: FC<ContentProps> = ({ content }) => {
                 // onBlur={handleBlur} 
                 value = {value} />
           </label>
-          <label>
+          {/* <label>
             Ref :
             <input  ref={ref}  type="ref"  name="ref"  />
-          </label>
+          </label> */}
           {/* <p>{value}</p> */}
           <label>
             Password :
@@ -68,12 +68,12 @@ const Content: FC<ContentProps> = ({ content }) => {
           </label>
 
           <button type="submit" > Login </button>
-          <button type="reset"> Reset </button>
-          <button type="button"> Button </button>
+          {/* <button type="reset"> Reset </button> */}
+          {/* <button type="button"> Button </button> */}
           {/* <button  type='button'  onClick={() => setHiddenUsers((prev) => !prev)} > Hide users </button> */}
 
         </form>
- 		{<Users isHiddenUsers = {isHiddenUsers} />} 
+ 		{/* {<Users isHiddenUsers = {isHiddenUsers} />}  */}
 
       </main> 
     </>
