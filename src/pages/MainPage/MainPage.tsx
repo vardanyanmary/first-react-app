@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction } from "react";
 import "./MainPage.scss";
 
 interface UserPas {
@@ -7,11 +7,11 @@ interface UserPas {
 }
 
 const MainPage = () => {
-  const SECRET_KEY = "SECRET_KEY";
+  const USERS = "USERS_REGISTRATION_DETAILS";
   const [remembered, setRemembered] = useState(false);
   const [formData, setFormData] = useState<UserPas>({
-    username: "",
-    password: "",
+    username: '',
+    password: ''
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,15 +23,16 @@ const MainPage = () => {
 
   const handleSubmit = () => {
     if (remembered) {
-      localStorage.setItem(SECRET_KEY, JSON.stringify(formData));
+      localStorage.setItem(USERS, JSON.stringify(formData));
     } 
   };
 
   useEffect(() => {
-    const storedData = localStorage.getItem(SECRET_KEY);
+    // type NewType = SetStateAction<UserPas> | null;
+    const storedData = localStorage.getItem(USERS);
     if (storedData) {
       setRemembered(true);
-    //   setFormData(storedData);
+      setFormData(storedData);
     }
   }, []);
 
@@ -44,8 +45,8 @@ const MainPage = () => {
           <input
             type="text"
             placeholder="Username"
-            onChange={handleChange}
             name="username"
+            onChange={handleChange}
             value={formData.username}
             />
         </label>
@@ -54,8 +55,8 @@ const MainPage = () => {
           <input
             type="password"
             placeholder="Password"
-            onChange={handleChange}
             name="password"
+            onChange={handleChange}
             value={formData.password}
           />
         </label>
