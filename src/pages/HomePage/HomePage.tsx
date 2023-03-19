@@ -14,8 +14,7 @@ const data: Data = {
     footer: 'Text for Footer component',
 };
 
-export const AllInOne = () => {
-
+export const HomePage = () => {
 
     return (
         <>

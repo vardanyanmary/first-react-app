@@ -1,33 +1,34 @@
-import ToDo from "../Components/ToDo/ToDo"
-import { AllInOne } from "../pages/HomePage/HomePage"
-import Login from "../pages/Login/Login"
-import { NotFound } from "../pages/NotFound/NotFound"
+import ToDo from "../Components/ToDo/ToDo";
+import { HomePage } from "../pages/HomePage/HomePage";
+import { LoginPage } from "../pages/LoginPage/LoginPage";
+import { NotFound } from "../pages/NotFound/NotFound";
 
 export const publicRoutes = [
   {
-    path:'/',
-    element:<Login />,
-    name:'Login'
-  },{
-    path:'*',
-    element:<NotFound />
-  }
-]
-
-export const privateRoutes = [  
+    path: "/login",
+    element: <LoginPage />,
+  },
   {
-    path:'/',
-    element:<Login />,
-    name:'Login'
-  },{
-    path:'/todo',
-    element:<ToDo />,
-    name:'ToDo'
-  },{
-    path:'/all',
-    element:<AllInOne />,
-    name:'Home'
-  },{
-    path:'*',
-    element:<NotFound />
-  }]
+    path: "/*",
+    element: <NotFound />,
+  },
+];
+
+export const privateRoutes = [
+  {
+    path: "/",
+    element: <HomePage />,
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
+    path: "/todo",
+    element: <ToDo />,
+  },
+  {
+    path: "/*",
+    element: <NotFound />,
+  },
+];

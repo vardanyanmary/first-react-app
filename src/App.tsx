@@ -1,78 +1,35 @@
 import { useState } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
-import { Theme, ThemeSwitcher } from "./Components/ThemeSwitcher/ThemeSwitcher";
-import { AppLink } from "./Components/AppLink/AppLink";
-import { USERS } from "./Components/constants/localStorage";
+import { Routes, Route } from "react-router-dom";
+import useAuth from "./Components/hooks/useAuth";
+import { Navbar } from "./Components/Navbar/Navbar";
+import {Theme, ThemeSwitcher} from "./Components/UI/ThemeSwitcher/ThemeSwitcher";
 import { privateRoutes, publicRoutes } from "./routes/routes";
-import {AppLinksProps} from "./Components/AppLink/AppLink"
 
 const App = () => {
-
-  const [theme, setTheme] = useState<Theme>("light");
-  const userIsAuth = localStorage.getItem(USERS);
-
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.removeItem(USERS);
-    navigate("/");
-  };
-
-  if (!userIsAuth) {
-    navigate("/");
-  }
+  const [theme, setTheme] = useState<Theme>("dark");
+  const { userIsAuth } = useAuth();
 
   return (
-    <div className={`App ${theme}`}>
-      <ThemeSwitcher setTheme={setTheme} />
-
-      {/* <AppLink links = {links} > {} </AppLink> */}
-
-      {/* <AppLink to="/all">Home</AppLink>
-      <AppLink to="/todo">Todo</AppLink> */}
-
-      <Routes>
-        <>
-          {/* {!userIsAuth ? (
-            <>
-              {publicRoutes.map(({ path, name }) => {
-                <AppLink to = {path}> {name} </AppLink>;
-              })}
-            </>
-          ) : (
-            <>
-              {privateRoutes.map(({ path, name }) => (
-                <AppLink to={path}>{name}</AppLink>
-              ))}
-            </>
-          )} */}
-
+      <div className={`App ${theme}`}>
+        <Navbar />
+        <ThemeSwitcher setTheme={setTheme} />
+        <Routes>
           {!userIsAuth ? (
             <>
               {publicRoutes.map(({ element, path }) => (
-                <Route path = {path} element = {element} key = {path} />
+                <Route path={path} element={element} key={path} />
               ))}
             </>
           ) : (
             <>
               {privateRoutes.map(({ element, path }) => (
-                <Route path = {path} element = {element} key = {path} />
+                <Route path={path} element={element} key={path} />
               ))}
             </>
           )}
-        </>
-      </Routes>
-    </div>
+        </Routes>
+      </div>
   );
 };
 
 export default App;
-
-{
-  /* <Route path="/" element={<MainPage />}/>
-  <Route path="/todo" element={<ToDo />} />
-  <Route path="/all" element={<AllInOne />} />
-  <Route path="*" element={<NotFound />} /> */
-}
-
-
