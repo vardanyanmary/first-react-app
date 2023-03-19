@@ -1,0 +1,23 @@
+.AppLink{
+    width: 31.33%;
+    background-color: var(--primary-color);
+    display:inline-flex;
+    padding: 8px 15px;
+    margin: 0 ;
+}
+
+.AppLinkLi {
+    width: 100%;
+    padding: 3px 6px;
+    margin-left: 15px;
+    color: var(--primary-color);
+    background-color: var(--bg-color);
+    font: var(--font-l); 
+    list-style:none;
+    text-align: center;
+}
+
+.AppLinkLi:hover{
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}

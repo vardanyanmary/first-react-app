@@ -1,0 +1,1 @@
+export const USERS = "USERS_REGISTRATION_DETAILS";

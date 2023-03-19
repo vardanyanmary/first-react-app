@@ -1,0 +1,21 @@
+.Button{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 12px;
+    width: 25%;
+    font:var(--font-m);
+    background-color: var(--inverted-primary-button-color);
+    color: var(--inverted-secondary-button-color);
+}
+
+.Button:hover{
+    background-color: var(--primary-button-color);
+    color: var(--secondary-button-color);
+}
+
+button.primary {
+    color: var(--inverted-secondary-button-color);
+}

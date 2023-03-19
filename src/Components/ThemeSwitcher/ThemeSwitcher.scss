@@ -1,0 +1,12 @@
+.ButtonTheme button {
+    border-radius: 3px;
+    font:var(--font-m);
+    background-color: var(--bg-color);
+    color: var(--secondary-color);
+    position: fixed;
+    opacity: 0.3;
+}
+
+.ButtonTheme button:hover{
+    opacity: 1;
+}

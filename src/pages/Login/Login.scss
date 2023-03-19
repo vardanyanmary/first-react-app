@@ -1,0 +1,17 @@
+.userLogin {
+    background-color: var(--bg-color);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    form {
+        display: flex;
+        flex-direction: column;
+        grid-row-gap: 10px;
+        margin: 0 auto;
+        width: 450px;
+        text-align: center;
+        margin-top: 7px;
+        color:var(--inverted-bg-color);
+        font-size: 20px;
+    }
+}

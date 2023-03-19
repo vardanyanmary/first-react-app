@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { IToDoItem } from "../ToDo";
-import "./ToDoItem.css";
+import "./ToDoItem.scss";
 
 interface ChildComponentProps {
   onChangeItem: React.Dispatch<React.SetStateAction<IToDoItem[]>>;

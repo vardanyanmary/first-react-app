@@ -1,34 +1,65 @@
-import { useEffect, useState } from "react";
-import ToDo from "./Components/ToDo/ToDo";
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
-import { AllInOne } from "./pages/HeaderContentFooter/AllInOne";
-import { NotFound } from "./pages/NotFound/NotFound";
-import MainPage from "./pages/MainPage/MainPage";
+import { useState } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { Theme, ThemeSwitcher } from "./Components/ThemeSwitcher/ThemeSwitcher";
+import { AppLink } from "./Components/AppLink/AppLink";
+import { USERS } from "./Components/constants/localStorage";
+import { privateRoutes, publicRoutes } from "./routes/routes";
+import {AppLinksProps} from "./Components/AppLink/AppLink"
 
 const App = () => {
-//   const navigate = useNavigate();
-//   const [isLoggedIn, setisLoggedIn] = useState(false);
 
-//   useEffect(() => {
-//     if (!isLoggedIn) {
-//       navigate("/");
-//     } else {
-//       navigate("/todo");
-//     }
-//   }, [navigate, isLoggedIn]);
+  const [theme, setTheme] = useState<Theme>("light");
+  const userIsAuth = localStorage.getItem(USERS);
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem(USERS);
+    navigate("/");
+  };
+
+  if (!userIsAuth) {
+    navigate("/");
+  }
 
   return (
-    <div>
+    <div className={`App ${theme}`}>
+      <ThemeSwitcher setTheme={setTheme} />
+
+      {/* <AppLink links = {links} > {} </AppLink> */}
+
+      {/* <AppLink to="/all">Home</AppLink>
+      <AppLink to="/todo">Todo</AppLink> */}
+
       <Routes>
         <>
-          <Route path="/" element={<MainPage />}/>
-          <Route path="/todo" element={<ToDo />} />
-          <Route path={"/all"} element={<AllInOne />} />
-          <Route path="/*" element={<NotFound />} />
-          {/* {localStorage.getItem("") ? ( <Route path={"/main"} element={<MainPage />} />
-			) : (<Route path={"/all"} element={<AllInOne />} />)} */}
+          {/* {!userIsAuth ? (
+            <>
+              {publicRoutes.map(({ path, name }) => {
+                <AppLink to = {path}> {name} </AppLink>;
+              })}
+            </>
+          ) : (
+            <>
+              {privateRoutes.map(({ path, name }) => (
+                <AppLink to={path}>{name}</AppLink>
+              ))}
+            </>
+          )} */}
 
-          {/* {isLoggedIn || (<button onClick={() => setisLoggedIn(true)}>Log me in</button>)} */}
+          {!userIsAuth ? (
+            <>
+              {publicRoutes.map(({ element, path }) => (
+                <Route path = {path} element = {element} key = {path} />
+              ))}
+            </>
+          ) : (
+            <>
+              {privateRoutes.map(({ element, path }) => (
+                <Route path = {path} element = {element} key = {path} />
+              ))}
+            </>
+          )}
         </>
       </Routes>
     </div>
@@ -36,4 +67,12 @@ const App = () => {
 };
 
 export default App;
+
+{
+  /* <Route path="/" element={<MainPage />}/>
+  <Route path="/todo" element={<ToDo />} />
+  <Route path="/all" element={<AllInOne />} />
+  <Route path="*" element={<NotFound />} /> */
+}
+
 

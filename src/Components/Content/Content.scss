@@ -3,8 +3,8 @@ body{
     padding: 0;
 }
 .Content p{
-    background-color: bisque;
-    color: brown;
+    background-color: var(--bg-color);
+    color:var(--inverted-bg-color);
     font-size: 35px;
     padding: 10px;
     text-align: center;
@@ -21,14 +21,14 @@ body{
     width: 450px;
     text-align: center;
     margin-top: 7px;
-    color:brown;
+    color:var(--inverted-secondary-button-color);
     font-size: 18px;
 }
 
 .Content label input {
     padding: 7px;
     border-radius: 5px;
-    border: 1px solid brown;
+    border: 1px solid var(--inverted-secondary-button-color);
 }
 
 .Content button{
@@ -37,8 +37,8 @@ body{
     font-size: 14px;
     border: none;
     border-radius: 5px;
-    background-color: bisque;
-    color: brown;
+    background-color: var(--secondary-button-color);
+    color: var(--primary-button-color);
     cursor: pointer;
     margin: 0 auto;
     margin-top: 12px;
@@ -47,6 +47,6 @@ body{
 }
 
 .Content button:hover {
-    background-color: brown;
-    color: bisque;
+    background-color: var(--primary-button-color);
+    color: var(--secondary-button-color);
 }

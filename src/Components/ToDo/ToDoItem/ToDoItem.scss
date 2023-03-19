@@ -2,9 +2,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 15px ;
+    padding: 10px 20px ;
     margin-top: 15px;
-    border: 1px solid rgb(255, 188, 19);
+    border: 1px solid var(--secondary-color);
     border-radius: 7px;
 }
 
@@ -17,7 +17,7 @@
     height: 10%;
     padding: 9px;
     border-radius: 5px;
-    border: 1px solid rgb(255, 188, 19);
+    border: 1px solid var(--secondary-color);
     margin-right: 10px;
     text-align: center;
     box-sizing: border-box;
@@ -26,7 +26,7 @@
 }
 
 .ToDoItem button:hover{
-    background-color: rgb(255, 188, 19);
+    background-color:var(--secondary-color);
     color: #fff;
 }
 
@@ -35,5 +35,5 @@
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
-    border: 1px solid rgb(255, 188, 19);
+    border: 1px solid var(--secondary-color);
 }
