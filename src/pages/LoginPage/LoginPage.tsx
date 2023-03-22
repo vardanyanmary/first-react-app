@@ -1,7 +1,8 @@
-import useAuth from '../../Components/hooks/useAuth'
 import Button from '../../Components/UI/Button/Button'
 import Input from '../../Components/UI/Input/Input'
+import { useAuth } from '../../Providers/AuthProvider'
 import './LoginPage.scss'
+
 
 export const LoginPage = () => {
   const {
@@ -13,24 +14,25 @@ export const LoginPage = () => {
   } = useAuth()
 
   return (
+    <>
     <div className="LoginPage">
       <Input
-        type = 'text'
-        placeholder = 'Enter username'
-        label = 'Username:'
-        value = {username}
-        onChange = {changeUsername}
+        type='text'
+        placeholder='Enter username'
+        label='Username:'
+        value={username}
+        onChange={changeUsername}
       />
       <Input
-        type = 'password'
-        placeholder = 'Enter password'
-        label = 'Password:'
-        value = {password}
-        onChange = {changePassword}
+        type='password'
+        placeholder='Enter password'
+        label='Password:'
+        value={password}
+        onChange={changePassword}
       />
 
-      <Button onClick = {logIn} type = 'primary'> Log In </Button>
-      
+      <Button  onClick={logIn} type='primary'> Login </Button>
     </div>
+    </>
   )
 }

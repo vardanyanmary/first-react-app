@@ -9,7 +9,7 @@ export const publicRoutes = [
     element: <LoginPage />,
   },
   {
-    path: "/*",
+    path: "*",
     element: <NotFound />,
   },
 ];
@@ -20,15 +20,11 @@ export const privateRoutes = [
     element: <HomePage />,
   },
   {
-    path: "/login",
-    element: <LoginPage />,
-  },
-  {
     path: "/todo",
     element: <ToDo />,
   },
   {
-    path: "/*",
+    path: "*",
     element: <NotFound />,
   },
 ];

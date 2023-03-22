@@ -1,35 +1,109 @@
-import "./Users.css";
-import { users } from "./Users.data";
-import { useEffect } from "react";
+import './Users.scss';
+import { useState } from 'react';
+import UserService from '../../api/Services/UserService/UserService';
+import { User } from '../../api/Services/UserService/types';
+import Button from '../UI/Button/Button';
 
-export const Users = ( { isHiddenUsers }: { isHiddenUsers: boolean }) => {
-  useEffect(() => {
-    // console.log(isHiddenUsers, "changed");
- 
-    return () => {
-      console.log("unmount");
-    };
-  }, [isHiddenUsers]);
+export const Users = ({ isHiddenUsers }: { isHiddenUsers: boolean }) => {
+// const {getAllUsers,users} = useUsers()
+	const [users, setUsers] = useState<User[]>()
 
+	const handleGetAllUsers = async () => {
+		try {
+			const users = await UserService.getAllUsers()
+			setUsers(users)
+		} catch (error) {
 
-  return (
-    <div className="Users">
-      <p> Homework 3 </p>
-      <div className="usersData">
-        {/* <button onClick = {createUsers}> Input </button> */}
-        {users.map((user) => {
-          return (
-            <span key={user.id}>
-              {user.name} -- Users data {user.id}
-            </span>
-          );
-        })}
-      </div>
-    </div>
-  );
+		}
+	}
+
+	// useEffect(() => {
+	// 	// console.log('mounted');
+
+	// 	return () => {
+	// 		console.log('unmounted');
+	// 	};
+	// }, []);
+
+	return (
+		<div>
+			<Button type='secondary' onClick={handleGetAllUsers}>get all users </Button>
+			{users?.map((user) => {
+				return (
+					<p
+						onClick={(e) => {
+							console.log(e.currentTarget.getAttribute('data-secondattribute'));
+						}}
+						key={user.id}
+						data-testid={user.id}
+						data-secondattribute={user.phone}
+					>
+						{user.name}
+					</p>
+				);
+			})}
+		</div>
+	);
 };
 
-export default Users;
+
+
+{// interface apiProps {
+//   url: string;
+// }
+
+// export const Users = () => {
+// 	const [users, setUsers] = useState<String[]>();
+// 	useEffect(()=>{
+// 		const BASE_URL = "https://jsonplaceholder.typicode.com";
+// 		axios.post(BASE_URL)
+// 		.then((response) => {
+// 			console.log(response.data.username);
+// 		})
+// 		.catch(error=>console.error(error))
+// 	},[]);
+
+// 		return (
+// 		<div>
+// 			{setUsers ?
+// 				users.map()
+// 			}
+// 		</div>
+// 		);
+// }
+// export default Users;
+
+// export const Users = ( { isHiddenUsers }: { isHiddenUsers: boolean }) => {
+// 	useEffect(() => {
+// 		console.log(isHiddenUsers, 'changed');
+
+// 		return () => {
+// 			console.log('unmount');
+// 		};
+// 	}, [isHiddenUsers]);
+
+// 	return (
+// 		<div>
+// 		</div>
+// 	);
+// };
+
+{
+  /* {users.map((user) => {
+	return (
+		<p
+			onClick={(e) => {
+				console.log(e.currentTarget.getAttribute('data-secondattribute'));
+			}}
+			key={user.id}
+			data-testid={user.id}
+			data-secondattribute={user.phone}
+		>
+			{user.name}
+		</p>
+	);
+})} */
+}
 
 // {content} : {content: string}
 // const [username, setUsername] = useState(content);
@@ -54,7 +128,8 @@ export default Users;
     /> */
 }
 
-/*
+{
+  /*
 import './Users.css';
 import { users } from './users.data';
 import { useEffect, useState } from 'react';
@@ -91,3 +166,4 @@ export const Users = ({ isHiddenUsers }: { isHiddenUsers: boolean }) => {
 // useRef, useEffect
 // attributes, custom attributes
 */
+}}

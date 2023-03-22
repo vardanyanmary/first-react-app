@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import Content from "./Components/Content/Content"
 import Footer from "./Components/Footer/Footer"
 import Header from "./Components/Header/Header"
-import Users from './Components/Users/Users'
+// import Users from './Components/Users/Users'
 
 export interface Data {
   header: string;

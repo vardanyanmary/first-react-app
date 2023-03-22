@@ -1,4 +1,4 @@
-import useAuth from "../hooks/useAuth";
+import { useAuth } from "../../Providers/AuthProvider";
 import { AppLink } from "../UI/AppLink/AppLink";
 import Button from "../UI/Button/Button";
 import './Navbar.scss'
@@ -12,7 +12,6 @@ export const Navbar = () => {
               ? <span className="links">
                   <AppLink to='/' >Home</AppLink>
                   <AppLink to='/todo'>Todo</AppLink>
-                  <AppLink to='/login'>Login</AppLink>
               </span>
               : <span className="links">
                   <AppLink to='/login'>Login</AppLink>

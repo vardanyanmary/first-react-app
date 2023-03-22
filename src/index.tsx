@@ -1,23 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import App from './App';
-import "./styles/index.scss"
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+import { AuthProvider } from "./Providers/AuthProvider";
+import "./styles/index.scss";
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-
-root.render(
-	<React.StrictMode>
-		<BrowserRouter>
-			<App />
-		</BrowserRouter>
-	</React.StrictMode>,
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
 );
 
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
+  </React.StrictMode>
+);
 
-
-
-{/* <Homework1/> */}
+{
+  /* <Homework1/> */
+}
 
 // import Homework4 from './Homework4';
 // import Homework1 from './Homework1';
@@ -34,7 +38,6 @@ root.render(
 //   content: 'CONTENT',
 // 	footer: 'FOOTER'
 // };
-
 
 //--- Arsen's code from first lesson ---
 
@@ -66,13 +69,13 @@ root.render(
 
 // root.render(
 // 	<React.StrictMode>
-// 		<App 
+// 		<App
 //       h1='h1'
 //       h2='h2'
 //       h3='h3'
 //       h4='h4'
 //       h5='h5'
-//       h6='h6' 
+//       h6='h6'
 //     />
 // 		{/* <App {...data} /> */}
 

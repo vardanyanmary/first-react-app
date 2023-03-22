@@ -27,7 +27,6 @@ interface User{
     website: string,
     company: UserCompany,
 }
-
 export const users : User[]= [
     {
       "id": 1,

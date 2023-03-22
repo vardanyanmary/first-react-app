@@ -2,7 +2,7 @@ body{
     margin: 0;
     padding: 0;
 }
-.Content p{
+.ContentP{
     background-color: var(--bg-color);
     color:var(--inverted-bg-color);
     font-size: 35px;
@@ -12,24 +12,18 @@ body{
     margin-bottom: 10px;
 }
 
-.Content label {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    grid-row-gap: 10px;
-    margin: 0 auto;
-    width: 450px;
+.Content p{
     text-align: center;
-    margin-top: 7px;
-    color:var(--inverted-secondary-button-color);
-    font-size: 18px;
+    margin-top: 3px;
+    margin-bottom: 10px;
 }
 
-.Content label input {
-    padding: 7px;
-    border-radius: 5px;
-    border: 1px solid var(--inverted-secondary-button-color);
-}
+// .Content Input {
+//     text-align: center;
+//     padding: 7px;
+//     border-radius: 5px;
+//     border: 1px solid var(--inverted-secondary-button-color);
+// }
 
 .Content button{
     display: flex;
@@ -49,4 +43,11 @@ body{
 .Content button:hover {
     background-color: var(--primary-button-color);
     color: var(--secondary-button-color);
+}
+
+.ContentInputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }

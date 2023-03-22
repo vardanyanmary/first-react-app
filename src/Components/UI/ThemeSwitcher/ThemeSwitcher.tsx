@@ -1,3 +1,4 @@
+import { useTheme } from '../../hooks/useTheme'
 import Button from '../Button/Button'
 import './ThemeSwitcher.scss'
 
@@ -9,15 +10,16 @@ interface ThemeSwitcherProps {
 
 export const ThemeSwitcher = ({ setTheme }: ThemeSwitcherProps) => {
 
+  const [theme, toggleTheme] = useTheme();
 
-  const toggleTheme = () => setTheme(
-    prev => prev === 'light'
-      ? 'dark'
-      : 'light'
-  )
+  // const toggleTheme = () => setTheme(
+  //   prev => prev === 'light'
+  //     ? 'dark'
+  //     : 'light'
+  // )
 
     return (
-      <span className='ThemeSwitcher'>
+      <span className={`ThemeSwitcher ${theme}`}>
           <Button 
             type='secondary'  
             onClick={(toggleTheme)}
