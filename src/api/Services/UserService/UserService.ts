@@ -4,8 +4,8 @@ import { User } from "./types";
 class UserService {
     async getAllUsers() {
         try {
-            const res = await api.get<User[]>('users')
-            return res.data
+            const response = await api.get<User[]>('users')
+            return response.data
         } catch (error) {
             console.log(error);
         }
