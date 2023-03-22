@@ -14,7 +14,7 @@ export interface UserCompany {
     catchPhrase: string,
     bs: string
 }
-
+ 
 export interface User {
     id: number,
     name: string,
