@@ -13,9 +13,9 @@ export function useRegistration() {
         setPassword(e.target.value)
     }
 
-    const createNewUser = () => {
+    const createNewUser = async () => {
         try {
-            const response  = userService.createUser(username,password)
+            const response  = await userService.createUser(username, password)
             return response
         } catch (error) { }  
     }

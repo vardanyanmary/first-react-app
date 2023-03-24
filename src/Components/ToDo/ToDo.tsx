@@ -1,74 +1,63 @@
-import { useEffect, useState } from 'react';
-import ToDoItem from './ToDoItem/ToDoItem';
-import './ToDo.scss';
+import { useEffect, useState } from "react";
+import ToDoItem from "./ToDoItem/ToDoItem";
+import "./ToDo.scss";
+import { ToDo } from "../../api/Services/ToDoService/typesToDo";
+import Button from "../UI/Button/Button";
+import toDoService from "../../api/Services/ToDoService/ToDoService";
 
-export interface IToDoItem {
-	id: number;
-	task: string;
-	isCompleted: boolean;
-}
 
-const ToDo = () => {
-	const [toDoValue, setToDoValue] = useState('');
-	const [toDoList, setToDoList] = useState<IToDoItem[]>([]);
 
-	// Change
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const newValue = e.target.value;
-		setToDoValue(newValue);
-	};
+const ToDos = () => {
+  const [todos, setToDos] = useState<ToDo[]>();
 
-	// Add to do
-	const handleAddToDo = () => {
-		if (!toDoValue) {
-			return;
-		}
-		const id = toDoList.length + 1;
-		const newToDo: IToDoItem = {
-			id: id,
-			task: toDoValue,
-			isCompleted: false,
-		};
-		setToDoList((prev) => [...prev, newToDo]);
-		setToDoValue('');
-	};
+  const handleGetAllToDos = async () => {
+    try {
+      const todos = await toDoService.getAllToDos();
+      setToDos(todos);
+    } catch (error) {}
+  };
 
-	useEffect(() => {
-		console.log(toDoList, 'todo list');
-	}, [toDoList]);
 
-	// const [state,setState] = useState(false)
+  return (
+    <div className="TodoList">
+      <div className="InputButton">
+        <h1> ToDo List </h1>
 
-	// return <ChildComponent  />
+        <div className="addToDo">
+          <input type="text" value={toDoValue} onChange={handleChange} />
+          <Button onClick={handleAddToDo} type='secondary' > Add </Button>
+        </div>
 
-	return (
-		<div className='TodoList'>
-			<div className='InputButton'>
-				<h1> ToDo List </h1>
+        <div className="ToDos"> 
+          <Button type="secondary" onClick={handleGetAllToDos}>
+            Get All To Dos
+          </Button>
+          {todos?.map((todo) => {
+            return (
+              <p key={todo.id} >
+                 {todo.id} -- {todo.title}
+              </p>
+            );
+          })}
+        </div>
 
-				<div className='addToDo'>
-					<input type='text' value={toDoValue} onChange={handleChange} />
-					<button onClick={handleAddToDo}> Add </button>
-				</div>
-
-				<div>
-					<ul>
-						{toDoList.map((todo) => {
-							return (
-								<ToDoItem
-									key={todo.id}
-									todoItem={todo}
-									onChangeItem={setToDoList}
-									todosArray={toDoList}
-									// onChangeItem = {(props:any) => setToDoList(props)}
-								/>
-							);
-						})}
-					</ul>
-				</div>
-			</div>
-		</div>
-	);
+        <div>
+          <ul>
+            {toDoList.map((todo) => {
+              return (
+                <ToDoItem
+                  key={todo.id}
+                  todoItem={todo}
+                  onChangeItem={setToDoList}
+                  todosArray={toDoList}
+                />
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
 };
 
-export default ToDo;
+export default ToDos;

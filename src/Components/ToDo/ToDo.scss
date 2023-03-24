@@ -1,45 +1,43 @@
-body{
+body {
     margin: 0;
     padding: 0;
 }
+
 .TodoList {
-    color:var(--secondary-color);
+    color: var(--secondary-color);
     font-size: 25px;
     padding: 10px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
     font: var(--font-xl);
 }
 
-.addToDo input{
+.addToDo input {
     width: 350px;
-    padding: 1px;
     margin-right: 10px;
     border-radius: 5px;
     border: 1px solid var(--secondary-color);
 }
 
-.addToDo button {
-    width: 55px;
-    height: 40px;
-    padding: 10px;
-    padding-top: 16px;
-    border-radius: 5px;
-    border: 1px solid var(--secondary-color);
-    cursor: pointer;
-}
-
-.addToDo button:hover {
-    background-color:var(--secondary-color);
-    color: #fff;
-}
-
-.newTasks{
+.newTasks {
     padding: 20px;
     background-color: rgb(249, 236, 219);
 }
 
-ul{
+ul {
     padding: 0;
+}
+
+
+.ToDos {
+    p {
+        border: 1px solid var(--secondary-color);
+        border-radius: 5px;
+        margin-bottom: 7px;
+        font-size: 20px;
+        padding: 0;
+    }
+    Button{
+        margin: 10px 0 ;
+    }
+
 }

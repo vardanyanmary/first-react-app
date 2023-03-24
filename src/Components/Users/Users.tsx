@@ -17,14 +17,6 @@ export const Users = ({ isHiddenUsers }: { isHiddenUsers: boolean }) => {
 		}
 	}
 
-	// useEffect(() => {
-	// 	// console.log('mounted');
-
-	// 	return () => {
-	// 		console.log('unmounted');
-	// 	};
-	// }, []);
-
 	return (
 		<div>
 			<Button type='secondary' onClick={handleGetAllUsers}>get all users </Button>
