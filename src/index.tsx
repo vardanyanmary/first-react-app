@@ -14,8 +14,8 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider>
-        <AuthProvider>
-          <App />
+        <AuthProvider> {/* Routes */}
+          <App /> {/* Pages */}
         </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>
