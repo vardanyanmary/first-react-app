@@ -4,11 +4,14 @@ import "./ToDo.scss";
 import { ToDo } from "../../api/Services/ToDoService/typesToDo";
 import Button from "../UI/Button/Button";
 import toDoService from "../../api/Services/ToDoService/ToDoService";
-
-
+import { useToDo } from "../hooks/useToDo";
 
 const ToDos = () => {
   const [todos, setToDos] = useState<ToDo[]>();
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setToDos(e.target.value);
+    };
 
   const handleGetAllToDos = async () => {
     try {
@@ -17,25 +20,30 @@ const ToDos = () => {
     } catch (error) {}
   };
 
-
   return (
     <div className="TodoList">
       <div className="InputButton">
         <h1> ToDo List </h1>
 
         <div className="addToDo">
-          <input type="text" value={toDoValue} onChange={handleChange} />
-          <Button onClick={handleAddToDo} type='secondary' > Add </Button>
+          <input 
+            type="text" 
+            value={toDoValue} 
+            onChange={handleChange} 
+          />
+          <Button onClick={handleAddToDo} type="secondary">
+            Add
+          </Button>
         </div>
 
-        <div className="ToDos"> 
+        <div className="ToDos">
           <Button type="secondary" onClick={handleGetAllToDos}>
             Get All To Dos
           </Button>
           {todos?.map((todo) => {
             return (
-              <p key={todo.id} >
-                 {todo.id} -- {todo.title}
+              <p key={todo.id}>
+                {todo.id} -- {todo.title}
               </p>
             );
           })}
