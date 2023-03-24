@@ -9,10 +9,6 @@ import { useToDo } from "../hooks/useToDo";
 const ToDos = () => {
   const [todos, setToDos] = useState<ToDo[]>();
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setToDos(e.target.value);
-    };
-
   const handleGetAllToDos = async () => {
     try {
       const todos = await toDoService.getAllToDos();
@@ -28,10 +24,12 @@ const ToDos = () => {
         <div className="addToDo">
           <input 
             type="text" 
-            value={toDoValue} 
-            onChange={handleChange} 
+            // value={toDoValue} 
+            // onChange={handleChange} 
           />
-          <Button onClick={handleAddToDo} type="secondary">
+          <Button
+          //  onClick={handleAddToDo} 
+           type="secondary">
             Add
           </Button>
         </div>
@@ -43,13 +41,13 @@ const ToDos = () => {
           {todos?.map((todo) => {
             return (
               <p key={todo.id}>
-                {todo.id} -- {todo.title}
+                {todo.id} - {todo.title}
               </p>
             );
           })}
         </div>
 
-        <div>
+        {/* <div>
           <ul>
             {toDoList.map((todo) => {
               return (
@@ -62,7 +60,7 @@ const ToDos = () => {
               );
             })}
           </ul>
-        </div>
+        </div> */}
       </div>
     </div>
   );
