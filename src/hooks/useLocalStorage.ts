@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { LOCALSTORAGE_KEYS } from "../../constants/localStorage";
+import { LOCALSTORAGE_KEYS } from "../constants/localStorage";
 
 type useLocalStorageReturnType<Type> = [Type, React.Dispatch<React.SetStateAction<Type>>]
 
