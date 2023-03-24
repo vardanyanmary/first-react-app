@@ -1,3 +1,4 @@
+import { AppLink } from '../../Components/UI/AppLink/AppLink'
 import Button from '../../Components/UI/Button/Button'
 import Input from '../../Components/UI/Input/Input'
 import { useAuth } from '../../Providers/AuthProvider'
@@ -32,6 +33,9 @@ export const LoginPage = () => {
       />
 
       <Button  onClick={logIn} type='primary'> Login </Button>
+
+      <AppLink to='/createUser'>Create user</AppLink>
+
     </div>
     </>
   )

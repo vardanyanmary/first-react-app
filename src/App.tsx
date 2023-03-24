@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Navbar } from "./Components/Navbar/Navbar";
 import { ThemeSwitcher } from "./Components/UI/ThemeSwitcher/ThemeSwitcher";
@@ -21,7 +20,7 @@ const App = () => {
       <Routes>
         {(!userIsAuth ? publicRoutes : privateRoutes).map(
           ({ element, path }) => (
-            <Route path={path} element={element} key={path} />
+            <Route path = {path} element = {element} key = {path} />
           )
         )}
       </Routes>

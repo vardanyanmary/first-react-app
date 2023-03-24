@@ -3,9 +3,7 @@
     flex-direction: column;
     grid-row-gap: 5px;
     align-items: center;
-    font: var(--font-l);
-    // color: var(--bg-color);
-    // background-color: var(--inverted-bg-color);
+    font: var(--font-xl);
 }
 
 input {
@@ -13,5 +11,5 @@ input {
     border-radius: 5px;
     border: 1px solid var(--inverted-bg-color);
     margin: 0 auto;
-    font: var(--font-xl);
+    font: var(--font-l);
 }
