@@ -3,64 +3,71 @@ import toDoService from "../../api/Services/ToDoService/ToDoService";
 import { ToDo } from "../../api/Services/ToDoService/typesToDo";
 
 export function useToDo() {
-    const [title, setTitle] = useState("");
-    const [todos, setToDos] = useState<ToDo[]>([]);
-    
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setTitle(e.target.value);
-    };
-    
-    const createNewToDo = async () => {
-      try {
-        const res = await toDoService.createToDo(title);
-        setToDos((prev) => [...prev, res.data]);
-      } catch (error) {
-        console.error(error);
+  const [title, setTitle] = useState("");
+  const [todos, setToDos] = useState<ToDo[]>([]);
+  const [toDoList, setToDoList] = useState<ToDo[]>([]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  };
+
+  const handleListChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // setToDoList(e.target.value);
+  };
+
+  const createNewToDo = async (newTodoValue:string) => {
+    try {
+      const res = await toDoService.createToDo(1, 12, newTodoValue);
+      if (res) {
+        setToDos((prev) => [...prev,res]);
       }
-    
-      return {
-        todos,
-        createNewToDo,
-        handleChange,
-      };
-    };
+    } catch (error) {
+      console.error(error);
     }
-    
-  //   const [title, setTitle] = useState("");
-  //   const [toDoList, setToDoList] = useState<ToDo[]>([]);
 
-  //   // Change
-  //   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //     setTitle(e.target.value);
-  //   };
+  };
+  return {
+    todos,
+    createNewToDo,
+    handleChange,
+    handleListChange,
+  };
+}
 
-  //   useEffect(() => {
-  //     const newToDo: ToDo = {
-  //       userId: userId,
-  //       id: id,
-  //       title: title,
-  //       completed: false,
-  //     };
-  //     setToDoList((prev) => [...prev, newToDo]);
-  //     setTitle("");
-  //     console.log(toDoList, "todo list");
-  //   }, [toDoList]);
+//   const [title, setTitle] = useState("");
+//   const [toDoList, setToDoList] = useState<ToDo[]>([]);
 
-  //   const createNewToDo = async () => {
-  //     try {
-  //       const response = await toDoService.createNewToDo(
-  //         userId,
-  //         id,
-  //         title,
-  //         completed
-  //       );
-  //       return response;
-  //     } catch (error) {}
-  //   };
+//   // Change
+//   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     setTitle(e.target.value);
+//   };
 
-  //   return {
-  //     title,
-  //     handleChange,
-  //     createNewToDo,
-  //   };
+//   useEffect(() => {
+//     const newToDo: ToDo = {
+//       userId: userId,
+//       id: id,
+//       title: title,
+//       completed: false,
+//     };
+//     setToDoList((prev) => [...prev, newToDo]);
+//     setTitle("");
+//     console.log(toDoList, "todo list");
+//   }, [toDoList]);
 
+//   const createNewToDo = async () => {
+//     try {
+//       const response = await toDoService.createNewToDo(
+//         userId,
+//         id,
+//         title,
+//         completed
+//       );
+//       return response;
+//     } catch (error) {}
+//   };
+
+//   return {
+//     title,
+//     handleChange,
+//     createNewToDo,
+//   };

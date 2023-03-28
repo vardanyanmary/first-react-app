@@ -8,6 +8,12 @@ import { useToDo } from "../hooks/useToDo";
 
 const ToDos = () => {
   const [todos, setToDos] = useState<ToDo[]>();
+  const [toDoList, setToDoList] = useState<ToDo[]>([]);
+
+  const { 
+    handleChange,
+    createNewToDo
+  } = useToDo();
 
   const handleGetAllToDos = async () => {
     try {
@@ -22,13 +28,13 @@ const ToDos = () => {
         <h1> ToDo List </h1>
 
         <div className="addToDo">
-          <input 
-            type="text" 
-            // value={toDoValue} 
-            // onChange={handleChange} 
+          <input
+            type="text"
+            value={'jhgfd'}
+            onChange={handleChange}
           />
-          <Button
-          //  onClick={handleAddToDo} 
+          <Button 
+          onClick={()=>createNewToDo('newTodoValue')}
            type="secondary">
             Add
           </Button>
@@ -47,7 +53,7 @@ const ToDos = () => {
           })}
         </div>
 
-        {/* <div>
+        <div>
           <ul>
             {toDoList.map((todo) => {
               return (
@@ -60,7 +66,7 @@ const ToDos = () => {
               );
             })}
           </ul>
-        </div> */}
+        </div>
       </div>
     </div>
   );

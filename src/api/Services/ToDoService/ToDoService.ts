@@ -18,9 +18,9 @@ class ToDoService {
     }
   }
 
-  async createToDo( userId: number, id: number, title: string, completed: boolean) {
+  async createToDo(id: number, title: string) {
     try {
-      const newTodo = { id, userId, title, completed };
+      const newTodo = { id, title };
       const res = await api.post<CreateToDoResponse>('todos', newTodo);
       return res.data;
     } catch (error) {

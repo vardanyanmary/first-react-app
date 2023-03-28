@@ -1,11 +1,12 @@
 import { FC, useState } from "react";
-import { IToDoItem } from "../ToDo";
+import { ToDo } from "../../../api/Services/ToDoService/typesToDo";
 import "./ToDoItem.scss";
 
+
 interface ChildComponentProps {
-  onChangeItem: React.Dispatch<React.SetStateAction<IToDoItem[]>>;
-  todoItem: IToDoItem;
-  todosArray: IToDoItem[];
+  onChangeItem: React.Dispatch<React.SetStateAction<ToDo[]>>;
+  todoItem: ToDo;
+  todosArray: ToDo[];
 }
 
 const ToDoItem: FC<ChildComponentProps> = ({
@@ -13,7 +14,7 @@ const ToDoItem: FC<ChildComponentProps> = ({
   onChangeItem,
   todosArray,
 }) => {
-  const { id, task, isCompleted } = todoItem;
+  const { id, title, completed } = todoItem;
   const [isInEditMode, setIsInEditMode] = useState(false);
 
   //  Delete todo
@@ -25,26 +26,25 @@ const ToDoItem: FC<ChildComponentProps> = ({
   //  Completed todo
   const completeTask = (completedState: boolean) => {
     const newToDos = todosArray.filter((todoItem) => {
-      return todoItem.isCompleted !== completedState;
+      return todoItem.completed !== completedState;
     });
     onChangeItem((prev) => {
       // const current = prev.find((todo) => todo.id === todoItem.id);
       // if (current) {
-        // console.log(current);
-        return prev.map((todo)=> {
-          if(todo.id===todoItem.id)
-          {
-            return {...todo,isCompleted:!todo.isCompleted}
-          }
-          return todo
-        })
-        // return [...prev, { ...current, isCompleted: !current?.isCompleted }];
+      // console.log(current);
+      return prev.map((todo) => {
+        if (todo.id === todoItem.id) {
+          return { ...todo, isCompleted: !todo.completed };
+        }
+        return todo;
+      });
+      // return [...prev, { ...current, isCompleted: !current?.isCompleted }];
       // }
       // return prev;
     });
     // onChangeItem(newToDos);
   };
-  
+
   return (
     <li className="ToDoItem">
       {isInEditMode ? (
@@ -56,11 +56,17 @@ const ToDoItem: FC<ChildComponentProps> = ({
           />
           <button
           // onclick = {onTodoUpdate}
-          > Save </button>
-        </> ) : (<p> {task} </p> )}
+          >
+            {" "}
+            Save{" "}
+          </button>
+        </>
+      ) : (
+        <p> {title} </p>
+      )}
       <span>
         <button onClick={() => setIsInEditMode(true)}> Edit </button>
-        <button onClick={() => completeTask(!isCompleted)}> Completed </button>
+        <button onClick={() => completeTask(!completed)}> Completed </button>
         <button onClick={() => deleteToDoItem(id)}> Delete </button>
       </span>
     </li>
