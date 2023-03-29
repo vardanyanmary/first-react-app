@@ -14,7 +14,7 @@ export const MemoizationPage = () => {
     //         lastName: "hsbdc",
     //         age: 58
     //     })
-    // }, [])
+    // }, []) 
 
     const counter = useMemo(
         () => {

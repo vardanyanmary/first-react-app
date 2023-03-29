@@ -1,4 +1,3 @@
-import Posts from "../Components/Posts/Posts";
 import ToDo from "../Components/ToDo/ToDo";
 import { CreateUserPage } from "../pages/CreateUserPage/CreateUserPage";
 import { HomePage } from "../pages/HomePage/HomePage";
@@ -9,7 +8,7 @@ import { NotFound } from "../pages/NotFound/NotFound";
 export const publicRoutes = [
   {
     path: "/memoization",
-    element: <MemoizationPage />,
+    element: <MemoizationPage />, 
   },
   {
     path: "/login",
@@ -32,7 +31,7 @@ export const privateRoutes = [
   },
   {
     path: "/memoization",
-    element: <MemoizationPage />,
+    element: <MemoizationPage />, 
   },
   {
     path: "/todo",
