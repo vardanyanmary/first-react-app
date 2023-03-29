@@ -18,10 +18,10 @@ class ToDoService {
     }
   }
 
-  async createToDo(id: number, title: string) {
+  async createToDo(title: string) {
     try {
-      const newTodo = { id, title };
-      const res = await api.post<CreateToDoResponse>('todos', newTodo);
+      const newTodo = { title, completed: false };
+      const res = await api.post<CreateToDoResponse>("todos", newTodo);
       return res.data;
     } catch (error) {
       console.log(error);

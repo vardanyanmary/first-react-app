@@ -11,8 +11,9 @@ const ToDos = () => {
   const [toDoList, setToDoList] = useState<ToDo[]>([]);
 
   const { 
-    handleChange,
-    createNewToDo
+    toDoValue, 
+    createNewToDo, 
+    handleValueChange 
   } = useToDo();
 
   const handleGetAllToDos = async () => {
@@ -21,6 +22,7 @@ const ToDos = () => {
       setToDos(todos);
     } catch (error) {}
   };
+  
 
   return (
     <div className="TodoList">
@@ -28,14 +30,12 @@ const ToDos = () => {
         <h1> ToDo List </h1>
 
         <div className="addToDo">
-          <input
-            type="text"
-            value={'jhgfd'}
-            onChange={handleChange}
+          <input 
+            type="text" 
+            value={toDoValue} 
+            onChange={handleValueChange} 
           />
-          <Button 
-          onClick={()=>createNewToDo('newTodoValue')}
-           type="secondary">
+          <Button onClick={ () => {createNewToDo(toDoValue)} } type="secondary">
             Add
           </Button>
         </div>

@@ -1,10 +1,11 @@
+import { memo } from "react";
 import "./Input.scss";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
 }
 
-const Input = (props: InputProps) => {
+const Input = memo((props: InputProps) => {
   const { label, ...inputProps } = props;
 
   return (
@@ -13,6 +14,6 @@ const Input = (props: InputProps) => {
       <input type="text" {...inputProps} />
     </div>
   );
-};
+})
 
 export default Input;

@@ -14,8 +14,9 @@ const ToDoItem: FC<ChildComponentProps> = ({
   onChangeItem,
   todosArray,
 }) => {
+
   const { id, title, completed } = todoItem;
-  const [isInEditMode, setIsInEditMode] = useState(false);
+  const [ isInEditMode, setIsInEditMode ] = useState(false);
 
   //  Delete todo
   const deleteToDoItem = (id: number) => {
@@ -34,7 +35,7 @@ const ToDoItem: FC<ChildComponentProps> = ({
       // console.log(current);
       return prev.map((todo) => {
         if (todo.id === todoItem.id) {
-          return { ...todo, isCompleted: !todo.completed };
+          return { ...todo, completed: !todo.completed };
         }
         return todo;
       });

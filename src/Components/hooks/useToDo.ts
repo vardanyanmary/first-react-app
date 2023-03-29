@@ -3,34 +3,30 @@ import toDoService from "../../api/Services/ToDoService/ToDoService";
 import { ToDo } from "../../api/Services/ToDoService/typesToDo";
 
 export function useToDo() {
-  const [title, setTitle] = useState("");
   const [todos, setToDos] = useState<ToDo[]>([]);
-  const [toDoList, setToDoList] = useState<ToDo[]>([]);
+  const [toDoValue, setToDoValue] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTitle(e.target.value);
+  const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setToDoValue(e.target.value);
   };
 
-  const handleListChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // setToDoList(e.target.value);
-  };
-
-  const createNewToDo = async (newTodoValue:string) => {
+  const createNewToDo = async (title: string) => {
     try {
-      const res = await toDoService.createToDo(1, 12, newTodoValue);
+      const res = await toDoService.createToDo(title);
       if (res) {
-        setToDos((prev) => [...prev,res]);
+        setToDos((prev) => [...prev, res]);
+        setToDoValue("");
       }
     } catch (error) {
       console.error(error);
     }
-
   };
+
   return {
     todos,
+    toDoValue,
     createNewToDo,
-    handleChange,
-    handleListChange,
+    handleValueChange,
   };
 }
 
